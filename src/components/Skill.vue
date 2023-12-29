@@ -6,7 +6,7 @@
           <div>
             <ul>
               <li class="mb-2 text-sm flex justify-between items-center">
-                <span>{{ skill.name }}</span>
+                <span class="tracking-wide">{{ skill.name }}</span>
                 <span class="text-xs">{{ skill.start }} -</span>
               </li>
               <li>
