@@ -1,5 +1,5 @@
 <template>
   <header>
-    <h1 class="text-3xl font-bold">Resume</h1>
+    <h1 class="text-3xl">Resume</h1>
   </header>
 </template>
