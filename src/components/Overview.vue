@@ -1,10 +1,10 @@
 <template>
   <Section title="Overview">
-    <p class="mb-6 tracking-wider">
+    <p class="mb-6 tracking-wider text-sm leading-relaxed">
       2020年末からプログラミングを学び始めました。<br />
       フロントエンドが専門で、主にTypeScriptとNext.jsを使って仕事をしています。<br />
       現在は株式会社PLAN-Bにフロントエンドエンジニアとして勤めています。<br />
-      このResumeは、勉強の一環としてNuxt.jsを使って作成しました。
+      このResumeは、勉強の一環としてNuxt.jsで作成しました。
     </p>
     <dl class="flex flex-wrap gap-6">
       <Box v-for="item in overview" :key="item.name" class="p-4 grow">
