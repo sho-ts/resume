@@ -5,6 +5,7 @@
       <main class="py-6">
         <div class="flex flex-col gap-12">
           <Overview />
+          <Carrier />
           <Skill />
         </div>
       </main>
@@ -15,6 +16,7 @@
 <script setup lang="ts">
 import Header from '~/components/Header.vue';
 import Skill from '~/components/Skill.vue';
+import Carrier from '~/components/Carrier.vue';
 import Overview from '~/components/Overview.vue';
 
 useHead({
