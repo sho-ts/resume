@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import Section from '~/components/Section.vue';
+import Section from '~/components/ui/Section.vue';
 import Button from '~/components/Button.vue';
 import Input from '~/components/Input.vue';
 

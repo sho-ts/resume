@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import Box from '~/components/Box.vue';
-import Heading from '~/components/Heading.vue';
+import Box from '~/components/ui/Box.vue';
+import Heading from '~/components/ui/Heading.vue';
 
 defineProps({
   title: {

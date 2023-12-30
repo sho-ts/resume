@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import Section from '~/components/Section.vue';
+import Section from '~/components/ui/Section.vue';
 import Box from '~/components/Box.vue';
 
 const overview = [

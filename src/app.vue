@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import Header from '~/components/Header.vue';
-import Skill from '~/components/Skill.vue';
-import Carrier from '~/components/Carrier.vue';
-import Overview from '~/components/Overview.vue';
+import Header from '~/components/layoutHeader.vue';
+import Skill from '~/components/section/Skill.vue';
+import Carrier from '~/components/section/Carrier.vue';
+import Overview from '~/components/section/Overview.vue';
 
 useHead({
   title: 'RESUME',

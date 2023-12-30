@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import Section from '~/components/Section.vue';
-import Box from '~/components/Box.vue';
+import Section from '~/components/ui/Section.vue';
+import Box from '~/components/ui/Box.vue';
 
 const skillsRef = ref<HTMLDivElement | null>(null);
 const isObserve = ref(false);
