@@ -1,7 +1,7 @@
 <template>
   <Section title="Overview">
     <p class="mb-6 text-sm leading-relaxed">
-      2020年末からプログラミングを学び始めました。<br />
+      2019年末からプログラミングを学び始めました。<br />
       フロントエンドが専門で、主にTypeScriptとNext.jsを使って仕事をしています。<br />
       現在は株式会社PLAN-Bにフロントエンドエンジニアとして勤めています。<br />
       このResumeは、勉強の一環としてNuxt.jsで作成しました。
