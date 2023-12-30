@@ -1,27 +1,17 @@
-export default defineEventHandler((event) => {
-  const token = event.headers.get('Authorization');
+import { ResumeRepository } from '~/server/repository/ResumeRepository';
 
+const repository = new ResumeRepository();
+
+export default defineEventHandler(async (event) => {
+  const token = event.headers.get('Authorization');
   if (token !== process.env.NUXT_LIMITED_ACCESS_KEY) {
     throw new Response('Unauthorized', { status: 401 });
   }
 
-  const response: {
-    items: {
-      name: string;
-      start: string;
-      end: string;
-      description: string;
-    }[];
-  } = {
-    items: [
-      {
-        name: 'XX株式会社',
-        start: '20XX-04',
-        end: '20XX-03',
-        description: 'Webアプリケーションの開発を行っていました。',
-      },
-    ],
+  const resume = repository.search(process.env.NUXT_AWS_S3_RESUME_OBJECT_KEY as string);
+  if (!resume) {
+    throw new Response('Internal Server Error', { status: 500 })
   };
 
-  return response;
+  return resume;
 });

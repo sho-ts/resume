@@ -8,15 +8,31 @@
       </div>
       <p v-if="error" class="mt-5 text-xs text-red-500">アクセスキーが違います</p>
     </div>
-    <div v-else class="flex flex-wrap flex-col gap-6">
-      <div v-for="item in data.items" :key="item.name">
-        <h3 class="mb-2 text-sm">{{ item.name }}</h3>
-        <p class="text-xs">
-          <span>{{ item.start }} -</span>
-          <span v-if="item.end" class="ml-2">{{ item.end }}</span>
-        </p>
-        <p class="text-xs leading-relaxed mt-2">{{ item.description }}</p>
-      </div>
+    <div v-else class="flex flex-wrap flex-col gap-8">
+      <Box v-for="item in data.items" :key="item.name" class="pt-3 px-3 pb-4 md:pt-5 md:px-5 md:pb-6">
+        <div class="flex items-center gap-4 mb-3">
+          <h3 class="text-sm">{{ item.name }}</h3>
+          <p class="text-xs">
+            <span>{{ item.start }} -</span>
+            <span v-if="item.end" class="ml-2">{{ item.end }}</span>
+          </p>
+        </div>
+        <ul class="text-xs leading-relaxed mt-2 list-disc pl-4">
+          <li v-for="description in item.descriptions">{{ description }}</li>
+        </ul>
+        <Divide class="my-5" />
+        <ul class="text-xs leading-relaxed list-disc pl-4">
+          <li v-for="achievement in item.achievements">{{ achievement }}</li>
+        </ul>
+        <Divide class="my-5" />
+        <ul class="flex flex-wrap gap-5">
+          <li v-for="use in item.uses">
+            <Badge>
+              {{ use }}
+            </Badge>
+          </li>
+        </ul>
+      </Box>
     </div>
   </Section>
 </template>
@@ -25,6 +41,9 @@
 import Section from '~/components/ui/Section.vue';
 import Button from '~/components/ui/Button.vue';
 import Input from '~/components/ui/Input.vue';
+import Box from '~/components/ui/Box.vue';
+import Divide from '~/components/ui/Divide.vue';
+import Badge from '~/components/ui/Badge.vue';
 
 const route = useRoute();
 const password = ref((route.query.limited_token as string | undefined) ?? '');
@@ -39,5 +58,4 @@ const { data, execute, pending, status, error } = useFetch('/api/resume', {
   immediate: !!password.value,
   watch: false,
 });
-
 </script>
