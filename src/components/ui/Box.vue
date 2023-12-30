@@ -3,10 +3,5 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  class: {
-    type: String,
-    default: '',
-  },
-});
+defineProps<{ class?: string }>();
 </script>

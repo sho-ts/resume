@@ -9,10 +9,5 @@
 import Box from '~/components/ui/Box.vue';
 import Heading from '~/components/ui/Heading.vue';
 
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-});
+defineProps<{ title: string }>();
 </script>
