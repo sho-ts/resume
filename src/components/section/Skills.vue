@@ -67,13 +67,13 @@ const skills = [
     name: 'JavaScript',
     level: 90,
     start: 2020,
-    description: '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。',
+    description: '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。Jestを使用して、自動テストを書くことができる。',
   },
   {
     name: 'React',
     level: 60,
     start: 2021,
-    description: 'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。',
+    description: 'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。React Testing Libraryを使用して、自動テストを書くことができる。コンポーネント作成時は、Storybook駆動で開発をしている。',
   },
   {
     name: 'Next.js',
@@ -85,7 +85,7 @@ const skills = [
     name: 'Nest.js',
     level: 50,
     start: 2023,
-    description: 'Nest.jsの設計思想、BFFとして使用した際のdataLoaderでのデータ取得の最適化などを理解し、実装できる。',
+    description: 'Nest.jsの設計思想、BFFとして使用した際のDataLoaderでのデータ取得の最適化などを理解し、実装できる。',
   },
   {
     name: 'GraphQL',
@@ -102,14 +102,14 @@ const skills = [
   {
     name: 'HTML',
     level: 60,
-    start: 2020,
+    start: 2019,
     description: 'セマンティックなHTMLを書くことができる。HTML Living Standardを理解している。',
   },
   {
     name: 'CSS',
     level: 80,
-    start: 2020,
-    description: 'BEM,FLOCSSなどのCSS設計を理解している。CSS in JSを使用してのスタイリングができる。ランタイムCSS、ゼロランタイムCSSの違いを理解し、最適な実装をできる。',
+    start: 2019,
+    description: 'BEM, FLOCSSなどのCSS設計を理解している。CSS in JSを使用してのスタイリングができる。ランタイムCSSとゼロランタイムCSSの違いを理解し、最適な実装をできる。',
   },
   {
     name: 'PHP',
