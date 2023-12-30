@@ -1,7 +1,7 @@
 export default defineEventHandler((event) => {
   const token = event.headers.get('Authorization');
 
-  if (token !== process.env.NEXT_LIMITED_ACCESS_KEY) {
+  if (token !== process.env.NUXT_LIMITED_ACCESS_KEY) {
     throw new Response('Unauthorized', { status: 401 });
   }
 
