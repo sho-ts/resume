@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'ja',
       },
+      link: [
+        { rel: 'icon',  href: '/favicon.ico' }
+      ],
     },
   },
   postcss: {
