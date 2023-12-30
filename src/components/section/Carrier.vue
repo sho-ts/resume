@@ -1,7 +1,7 @@
 <template>
   <Section title="Carrier">
     <div v-if="!data">
-      <p class="mb-4 text-sm">Carrierを表示するにはパスワードを入力してください。</p>
+      <p class="mb-4 text-sm">Carrierを表示するにはアクセスキーを入力してください。</p>
       <div class="flex flex-col md:flex-row md:items-center gap-4">
         <Input type="password" :value="password" @input="(e) => (password = e.target.value)" />
         <Button :loading="isPending" class="px-8 py-2" @click="handleSubmit">表示</Button>
@@ -54,7 +54,7 @@ const handleSubmit = async () => {
   } catch (e) {
     if (isFetchError(e)) {
       if (e.status === HTTP_STATUS.UNAUTHORIZED) {
-        alert('パスワードが違います。');
+        alert('アクセスキーが違います。');
       } else {
         alert('通信エラーが発生しました。');
       }
