@@ -28,7 +28,9 @@ import { HTTP_STATUS } from '~/constants/httpStatus';
 
 let isPending = ref(false);
 
-const password = ref('');
+const route = useRoute();
+
+const password = ref((route.query.limited_token as string | undefined) ?? '');
 const data = ref<{
   items: {
     name: string;
