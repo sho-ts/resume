@@ -2,7 +2,7 @@
   <Section title="Skills">
     <div class="flex flex-wrap gap-6" ref="skillsRef">
       <div v-for="skill in skills" :key="skill.name" class="w-full md:w-[calc(100%_/_3_-_16px)]">
-        <Box class="p-3">
+        <Box class="p-3 h-full">
           <div>
             <ul>
               <li class="mb-2 text-sm flex justify-between items-center">
@@ -19,6 +19,9 @@
                     }"
                   />
                 </div>
+              </li>
+              <li v-if="!!skill.description" class="mt-2 text-xs leading-relaxed">
+                {{ skill.description }}
               </li>
             </ul>
           </div>
@@ -58,11 +61,65 @@ const skills = [
     name: 'TypeScript',
     level: 70,
     start: 2020,
+    description: '型システムを理解し、安全、最適なコードを書ける。ジェネクリクスなどを使用して、柔軟性のある実装ができる。業務での使用頻度は最も高い。',
+  },
+  {
+    name: 'JavaScript',
+    level: 90,
+    start: 2020,
+    description: '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。',
+  },
+  {
+    name: 'React',
+    level: 60,
+    start: 2021,
+    description: 'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。',
+  },
+  {
+    name: 'Next.js',
+    level: 60,
+    start: 2022,
+    description: 'ISR, SG, SSRなどの概念を理解している。Page RouterとApp Routerの違いを理解し、最適な実装ができる。',
+  },
+  {
+    name: 'Nest.js',
+    level: 50,
+    start: 2023,
+    description: 'Nest.jsの設計思想、BFFとして使用した際のdataLoaderでのデータ取得の最適化などを理解し、実装できる。',
+  },
+  {
+    name: 'GraphQL',
+    level: 50,
+    start: 2023,
+    description: 'GraphQL Server Specificationを理解し、GraphQLサーバーを実装できる。フロントエンドでRelayを使用してデータ取得を行うことができる。',
+  },
+  {
+    name: 'MySQL',
+    level: 60,
+    start: 2022,
+    description: 'テーブル結合や、サブクエリなど、応用的なクエリを書くことができる。explainを活用して、クエリの最適化ができる。テーブル設計をできる。',
+  },
+  {
+    name: 'HTML',
+    level: 60,
+    start: 2020,
+    description: 'セマンティックなHTMLを書くことができる。HTML Living Standardを理解している。',
+  },
+  {
+    name: 'CSS',
+    level: 80,
+    start: 2020,
+    description: 'BEM,FLOCSSなどのCSS設計を理解している。CSS in JSを使用してのスタイリングができる。ランタイムCSS、ゼロランタイムCSSの違いを理解し、最適な実装をできる。',
   },
   {
     name: 'PHP',
     level: 70,
-    start: 2020
+    start: 2020,
+  },
+  {
+    name: 'Laravel',
+    level: 50,
+    start: 2022,
   },
   {
     name: 'Go',
@@ -70,7 +127,7 @@ const skills = [
     start: 2022,
   },
   {
-    name: 'Python',
+    name: 'Gin',
     level: 40,
     start: 2023,
   },
@@ -80,44 +137,9 @@ const skills = [
     start: 2023,
   },
   {
-    name: 'MySQL',
-    level: 60,
-    start: 2022,
-  },
-  {
-    name: 'GraphQL',
-    level: 50,
+    name: 'SpringBoot',
+    level: 20,
     start: 2023,
-  },
-  {
-    name: 'HTML',
-    level: 60,
-    start: 2020,
-  },
-  {
-    name: 'CSS',
-    level: 80,
-    start: 2020,
-  },
-  {
-    name: 'JavaScript',
-    level: 90,
-    start: 2020,
-  },
-  {
-    name: 'GLSL',
-    level: 10,
-    start: 2023,
-  },
-  {
-    name: 'React',
-    level: 60,
-    start: 2021,
-  },
-  {
-    name: 'Next.js',
-    level: 60,
-    start: 2022,
   },
   {
     name: 'Vue3',
@@ -130,28 +152,18 @@ const skills = [
     start: 2024,
   },
   {
+    name: 'Python',
+    level: 40,
+    start: 2023,
+  },
+  {
+    name: 'GLSL',
+    level: 10,
+    start: 2023,
+  },
+  {
     name: 'Three.js',
     level: 30,
-    start: 2023,
-  },
-  {
-    name: 'Laravel',
-    level: 50,
-    start: 2022,
-  },
-  {
-    name: 'Nest.js',
-    level: 50,
-    start: 2023,
-  },
-  {
-    name: 'SpringBoot',
-    level: 20,
-    start: 2023,
-  },
-  {
-    name: 'Gin',
-    level: 40,
     start: 2023,
   },
 ];
