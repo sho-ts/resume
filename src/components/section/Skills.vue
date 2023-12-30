@@ -7,7 +7,7 @@
             <ul>
               <li class="mb-2 text-sm flex justify-between items-center">
                 <span class="tracking-wide">{{ skill.name }}</span>
-                <span class="text-xs">{{ skill.start }} -</span>
+                <span class="text-xs tracking-normal">{{ skill.start }} -</span>
               </li>
               <li>
                 <div class="overflow-hidden shadow-[inset_-2px_-2px_1px_1px_rgb(255_255_255)_,inset_2px_2px_1px_1px_rgb(226_232_240)] h-3 rounded-lg">

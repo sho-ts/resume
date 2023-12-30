@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 px-4 md:px-6 bg-slate-100 min-h-screen min-h-dvh">
+  <div class="py-6 px-4 md:px-6 bg-slate-100 min-h-screen min-h-dvh tracking-wider">
     <div class="max-w-screen-lg mx-auto">
       <Header />
       <main class="py-6">
