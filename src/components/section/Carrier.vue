@@ -34,7 +34,7 @@ const headers = computed(() => ({
 }));
 
 const { data, execute, pending, status, error } = useFetch('/api/resume', {
-  method: 'POST',
+  method: 'GET',
   headers,
   immediate: !!password.value,
   watch: false,
