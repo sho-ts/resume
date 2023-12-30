@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import Section from '~/components/ui/Section.vue';
-import Box from '~/components/Box.vue';
+import Box from '~/components/ui/Box.vue';
 
 const overview = [
   {

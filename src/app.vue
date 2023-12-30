@@ -6,7 +6,7 @@
         <div class="flex flex-col gap-12">
           <Overview />
           <Carrier />
-          <Skill />
+          <Skills />
         </div>
       </main>
     </div>
@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import Header from '~/components/layoutHeader.vue';
-import Skill from '~/components/section/Skill.vue';
+import Header from '~/components/layout/Header.vue';
+import Skills from '~/components/section/Skills.vue';
 import Carrier from '~/components/section/Carrier.vue';
 import Overview from '~/components/section/Overview.vue';
 
