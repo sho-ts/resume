@@ -10,11 +10,11 @@
     </div>
     <div v-else class="flex flex-wrap flex-col gap-8">
       <Box v-for="item in data.items" :key="item.name" class="pt-3 px-3 pb-4 md:pt-5 md:px-5 md:pb-6">
-        <div class="flex items-center gap-4 mb-3">
+        <div class="flex flex-col gap-2 mb-6 md:flex-row md:gap-4 md:items-center md:mb-4">
           <h3 class="text-sm">{{ item.name }}</h3>
-          <p class="text-xs">
+          <p class="text-xs text-right">
             <span>{{ item.start }} -</span>
-            <span v-if="item.end" class="ml-2">{{ item.end }}</span>
+            <span v-if="item.end" class="md:ml-2">{{ item.end }}</span>
           </p>
         </div>
         <ul class="text-xs leading-relaxed mt-2 list-disc pl-4">
