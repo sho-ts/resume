@@ -4,8 +4,9 @@
       <p class="mb-4 text-sm">Carrierを表示するにはアクセスキーを入力してください。</p>
       <div class="flex flex-col md:flex-row md:items-center gap-4">
         <Input type="password" :value="password" @input="(e) => (password = e.target.value)" />
-        <Button :loading="isPending" class="px-8 py-2" @click="handleSubmit">表示</Button>
+        <Button :loading="status !== 'idle' && pending" class="px-8 py-2" @click="execute">表示</Button>
       </div>
+      <p v-if="error" class="mt-5 text-xs text-red-500">アクセスキーが違います</p>
     </div>
     <div v-else class="flex flex-wrap flex-col gap-6">
       <div v-for="item in data.items" :key="item.name">
@@ -24,45 +25,19 @@
 import Section from '~/components/ui/Section.vue';
 import Button from '~/components/ui/Button.vue';
 import Input from '~/components/ui/Input.vue';
-import { HTTP_STATUS } from '~/constants/httpStatus';
-
-let isPending = ref(false);
 
 const route = useRoute();
-
 const password = ref((route.query.limited_token as string | undefined) ?? '');
-const data = ref<{
-  items: {
-    name: string;
-    start: string;
-    end: string;
-    description: string;
-  }[];
-} | null>(null);
 
-const handleSubmit = async () => {
-  try {
-    isPending.value = true;
+const headers = computed(() => ({
+  authorization: password.value,
+}));
 
-    const response = await $fetch('/api/resume', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: password.value,
-      },
-    });
+const { data, execute, pending, status, error } = useFetch('/api/resume', {
+  method: 'POST',
+  headers,
+  immediate: !!password.value,
+  watch: false,
+});
 
-    data.value = response;
-  } catch (e) {
-    if (isFetchError(e)) {
-      if (e.status === HTTP_STATUS.UNAUTHORIZED) {
-        alert('アクセスキーが違います。');
-      } else {
-        alert('通信エラーが発生しました。');
-      }
-    }
-  } finally {
-    isPending.value = false;
-  }
-};
 </script>
