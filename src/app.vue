@@ -21,5 +21,6 @@ import Overview from '~/components/section/Overview.vue';
 
 useHead({
   title: 'RESUME',
+  meta: [{ name: 'robots', content: 'noindex' }],
 });
 </script>
