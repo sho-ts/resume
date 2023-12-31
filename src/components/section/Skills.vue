@@ -1,33 +1,29 @@
 <template>
   <Section title="Skills">
-    <div class="flex flex-wrap gap-6" ref="skillsRef">
-      <div v-for="skill in skills" :key="skill.name" class="w-full md:w-[calc(100%_/_3_-_16px)]">
+    <dl class="flex flex-wrap gap-6" ref="skillsRef">
+      <div v-for="skill in skills" class="w-full md:w-[calc(100%_/_3_-_16px)]">
         <Box class="p-3 h-full">
-          <div>
-            <ul>
-              <li class="mb-2 text-sm flex justify-between items-center">
-                <span class="tracking-wide">{{ skill.name }}</span>
-                <span class="text-xs tracking-normal">{{ skill.start }} -</span>
-              </li>
-              <li>
-                <div class="overflow-hidden shadow-[inset_-2px_-2px_1px_1px_rgb(255_255_255)_,inset_2px_2px_1px_1px_rgb(226_232_240)] h-3 rounded-lg">
-                  <div
-                    class="h-full bg-gradient-to-r from-blue-200 to-teal-200 rounded-lg transition-all duration-700 origin-left ease-in-out"
-                    :style="{
-                      width: `${skill.level}%`,
-                      transform: isObserve ? ' scaleX(1)' : 'scaleX(0)',
-                    }"
-                  />
-                </div>
-              </li>
-              <li v-if="!!skill.description" class="mt-2 text-xs leading-relaxed">
-                {{ skill.description }}
-              </li>
-            </ul>
-          </div>
+          <dt class="mb-2 text-sm flex justify-between items-center">
+            <span class="tracking-wide">{{ skill.name }}</span>
+            <span class="text-xs tracking-normal">{{ skill.start }} -</span>
+          </dt>
+          <dd>
+            <div class="overflow-hidden shadow-[inset_-2px_-2px_1px_1px_rgb(255_255_255)_,inset_2px_2px_1px_1px_rgb(226_232_240)] h-3 rounded-lg">
+              <div
+                class="h-full bg-gradient-to-r from-blue-200 to-teal-200 rounded-lg transition-all duration-700 origin-left ease-out"
+                :style="{
+                  width: `${skill.level}%`,
+                  transform: isObserve ? ' scaleX(1)' : 'scaleX(0)',
+                }"
+              />
+            </div>
+            <div v-if="!!skill.description" class="mt-2 text-xs leading-relaxed">
+              {{ skill.description }}
+            </div>
+          </dd>
         </Box>
       </div>
-    </div>
+    </dl>
   </Section>
 </template>
 
@@ -41,14 +37,19 @@ const isObserve = ref(false);
 let observer: IntersectionObserver | null = null;
 
 onMounted(() => {
-  observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        isObserve.value = true;
-        observer.unobserve(entry.target);
-      }
-    });
-  });
+  observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isObserve.value = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      rootMargin: '0px 0px -100px 0px',
+    }
+  );
   observer.observe(skillsRef.value!);
 });
 
@@ -67,13 +68,15 @@ const skills = [
     name: 'JavaScript',
     level: 90,
     start: 2020,
-    description: '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。Jestを使用して、自動テストを書くことができる。',
+    description:
+      '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。Jestを使用して、自動テストを書くことができる。',
   },
   {
     name: 'React',
     level: 60,
     start: 2021,
-    description: 'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。React Testing Libraryを使用して、自動テストを書くことができる。コンポーネント作成時は、Storybook駆動で開発をしている。',
+    description:
+      'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。React Testing Libraryを使用して、自動テストを書くことができる。コンポーネント作成時は、Storybook駆動で開発をしている。',
   },
   {
     name: 'Next.js',
