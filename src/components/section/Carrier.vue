@@ -17,13 +17,9 @@
             <span v-if="item.end" class="md:ml-2">{{ item.end }}</span>
           </p>
         </div>
-        <ul class="text-xs leading-relaxed mt-2 list-disc pl-4">
-          <li v-for="description in item.descriptions">{{ description }}</li>
-        </ul>
+        <List class="mt-2" :items="item.descriptions" />
         <Divide class="my-5" />
-        <ul class="text-xs leading-relaxed list-disc pl-4">
-          <li v-for="achievement in item.achievements">{{ achievement }}</li>
-        </ul>
+        <List :items="item.achievements" />
         <Divide class="my-5" />
         <ul class="flex flex-wrap gap-5">
           <li v-for="use in item.uses">
@@ -38,13 +34,6 @@
 </template>
 
 <script setup lang="ts">
-import Section from '~/components/ui/Section.vue';
-import Button from '~/components/ui/Button.vue';
-import Input from '~/components/ui/Input.vue';
-import Box from '~/components/ui/Box.vue';
-import Divide from '~/components/ui/Divide.vue';
-import Badge from '~/components/ui/Badge.vue';
-
 const route = useRoute();
 const password = ref((route.query.limited_token as string | undefined) ?? '');
 
