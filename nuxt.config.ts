@@ -9,11 +9,15 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'ja',
       },
-      link: [
-        { rel: 'icon',  href: '/favicon.ico' }
-      ],
+      link: [{ rel: 'icon', href: '/favicon.ico' }],
     },
   },
+  components: [
+    {
+      path: '~/components/ui',
+      pathPrefix: false,
+    },
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -8,8 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import Box from '~/components/ui/Box.vue';
-import Heading from '~/components/ui/Heading.vue';
-
 defineProps<{ title: string }>();
 </script>
