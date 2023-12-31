@@ -17,9 +17,7 @@
                 }"
               />
             </div>
-            <div v-if="!!skill.description" class="mt-2 text-xs leading-relaxed">
-              {{ skill.description }}
-            </div>
+            <List v-if="skill.descriptions" class="mt-2" :items="skill.descriptions" />
           </dd>
         </Box>
       </div>
@@ -28,9 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import Section from '~/components/ui/Section.vue';
-import Box from '~/components/ui/Box.vue';
-
 const skillsRef = ref<HTMLDivElement | null>(null);
 const isObserve = ref(false);
 
@@ -62,67 +57,94 @@ const skills = [
     name: 'TypeScript',
     level: 70,
     start: 2020,
-    description: '型システムを理解し、安全、最適なコードを書ける。ジェネクリクスなどを使用して、柔軟性のある実装ができる。業務での使用頻度は最も高い。',
+    descriptions: ['型システムを理解し、安全、最適なコードを書ける', 'ジェネクリクスなどを使用して、柔軟性のある実装ができる', '仕事、プライベート共に使用頻度は最も高い'],
   },
   {
     name: 'JavaScript',
     level: 90,
     start: 2020,
-    description:
-      '言語仕様を深く理解している。ES2015以降のモダンな構文での実装ができる。ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる。Jestを使用して、自動テストを書くことができる。',
+    descriptions: [
+      '言語仕様を深く理解している',
+      'ES2015以降のモダンな構文での実装ができる',
+      'ESLint, Prettierなどのツールを使用して、コードの品質を保つことができる',
+      'Jestを使用して、自動テストを書くことができる',
+      'Vite, Webpackなどのモジュールバンドラーを理解し、設定ができる',
+    ],
   },
   {
     name: 'React',
     level: 60,
     start: 2021,
-    description:
-      'Reactの仕組みを理解し、アプリケーションの開発ができる。メモ化などでパフォーマンスの最適化の方法をすることができる。ライブラリを使用して、データフェッチの最適化ができる。React Testing Libraryを使用して、自動テストを書くことができる。コンポーネント作成時は、Storybook駆動で開発をしている。',
+    descriptions: [
+      'Reactの仕組みを理解し、アプリケーションの開発ができる',
+      'memo化などでレンダリングの最適化をすることができる',
+      'ライブラリを使用して、データフェッチの最適化ができる',
+      'React Testing Libraryを使用して、自動テストを書くことができる',
+      'コンポーネント作成時は、Storybook駆動で開発をしている',
+    ],
   },
   {
     name: 'Next.js',
     level: 60,
     start: 2022,
-    description: 'ISR, SG, SSRなどの概念を理解している。Page RouterとApp Routerの違いを理解し、最適な実装ができる。',
+    descriptions: ['ISR, SG, SSRなどの概念を理解している', 'Page RouterとApp Routerの違いを理解し、最適な実装ができる'],
   },
   {
     name: 'Nest.js',
     level: 50,
     start: 2023,
-    description: 'Nest.jsの設計思想、BFFとして使用した際のDataLoaderでのデータ取得の最適化などを理解し、実装できる。',
+    descriptions: ['Nest.jsの設計思想、DataLoaderでのデータ取得の最適化などを理解し、実装できる', 'Apollo ServerやGraphQL Yogaを使用して、GraphQLサーバーを実装できる'],
   },
   {
     name: 'GraphQL',
     level: 50,
     start: 2023,
-    description: 'GraphQL Server Specificationを理解し、GraphQLサーバーを実装できる。フロントエンドでRelayを使用してデータ取得を行うことができる。',
+    descriptions: ['GraphQL Server Specificationを理解し、GraphQLサーバーを実装できる', 'フロントエンドでRelayを使用してデータ取得を行うことができる'],
   },
   {
     name: 'MySQL',
     level: 60,
     start: 2022,
-    description: 'テーブル結合や、サブクエリなど、応用的なクエリを書くことができる。explainを活用して、クエリの最適化ができる。テーブル設計をできる。',
+    descriptions: ['テーブル結合や、サブクエリなど、応用的なクエリを書くことができる', 'explainを活用して、クエリの最適化ができるテーブル設計をできる'],
   },
   {
     name: 'HTML',
     level: 60,
     start: 2019,
-    description: 'セマンティックなHTMLを書くことができる。HTML Living Standardを理解している。',
+    descriptions: ['セマンティックなHTMLを書くことができる', 'HTML Living Standardに準拠してマークアップすることができる'],
   },
   {
     name: 'CSS',
     level: 80,
     start: 2019,
-    description: 'BEM, FLOCSSなどのCSS設計を理解している。CSS in JSを使用してのスタイリングができる。ランタイムCSSとゼロランタイムCSSの違いを理解し、最適な実装をできる。',
+    descriptions: ['BEM, FLOCSSなどのCSS設計を理解している', 'CSS in JSを使用してのスタイリングができる', 'ランタイムCSSとゼロランタイムCSSの違いを理解し、最適な実装をできる'],
   },
   {
     name: 'PHP',
     level: 70,
     start: 2020,
+    descriptions: ['基本的な構文を理解している', 'composerを使用して、パッケージ管理ができる', 'namespace, useなどの概念を理解し、autoload設定などができる'],
   },
   {
     name: 'Laravel',
     level: 50,
     start: 2022,
+    descriptions: [
+      'artisanを使用してマイグレーション、バッチ処理などの作成ができる',
+      'Eloquent, QueryBuilderを使用して、データベースの操作ができる',
+      'Requestクラスを作成するなど、状況に応じて最適なバリデーションをできる',
+      'bladeでのテンプレートエンジン、API両方での実装ができる',
+    ],
+  },
+  {
+    name: 'Architecture',
+    level: 50,
+    start: 2022,
+    descriptions: [
+      'Clean Architecture, DDDなどの設計思想を理解し、実践することができる',
+      'Dependency Injectionなどの概念を理解し、実装することができる',
+      'Atomic Design, Feature Driven Folder Structureなどの設計思想を理解し、実践することができる',
+    ],
   },
   {
     name: 'Go',
@@ -131,6 +153,11 @@ const skills = [
   },
   {
     name: 'Gin',
+    level: 40,
+    start: 2023,
+  },
+  {
+    name: 'Python',
     level: 40,
     start: 2023,
   },
@@ -153,11 +180,6 @@ const skills = [
     name: 'Nuxt.js',
     level: 20,
     start: 2024,
-  },
-  {
-    name: 'Python',
-    level: 40,
-    start: 2023,
   },
   {
     name: 'GLSL',
