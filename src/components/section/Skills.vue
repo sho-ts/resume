@@ -13,7 +13,7 @@
                 class="h-full bg-gradient-to-r from-blue-200 to-teal-200 rounded-lg transition-all duration-700 origin-left ease-out"
                 :style="{
                   width: `${skill.level}%`,
-                  transform: isObserve ? ' scaleX(1)' : 'scaleX(0)',
+                  transform: isIntersecting ? ' scaleX(1)' : 'scaleX(0)',
                 }"
               />
             </div>
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 const skillsRef = ref<HTMLDivElement | null>(null);
-const isObserve = ref(false);
+const isIntersecting = ref(false);
 
 let observer: IntersectionObserver | null = null;
 
@@ -36,7 +36,7 @@ onMounted(() => {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          isObserve.value = true;
+          isIntersecting.value = true;
           observer.unobserve(entry.target);
         }
       });
